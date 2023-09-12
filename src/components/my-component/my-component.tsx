@@ -1,10 +1,12 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, FormInternals, Watch } from '@stencil/core';
 import { format } from '../../utils/utils';
 
 @Component({
   tag: 'my-component',
   styleUrl: 'my-component.css',
-  shadow: true,
+  shadow: {
+    formAssociated: true
+  }
 })
 export class MyComponent {
   /**
@@ -25,6 +27,14 @@ export class MyComponent {
   private getText(): string {
     return format(this.first, this.middle, this.last);
   }
+
+  @Watch("first")
+  onFirstChange() {
+    console.log('this:', this);
+    console.log('this.internals:', this.internals);
+  }
+
+  @FormInternals() internals: ElementInternals;
 
   render() {
     return <div>Hello, World! I'm {this.getText()}</div>;
