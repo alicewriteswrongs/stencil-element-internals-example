@@ -7,7 +7,7 @@ import { Component, h, FormInternals, State } from '@stencil/core';
     formAssociated: true
   }
 })
-export class MyComponent {
+export class CustomTextInput {
   @State() value: string;
 
   @FormInternals() internals: ElementInternals;
