@@ -10,7 +10,20 @@
   </head>
   <body>
     <form>
-      <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+      <custom-text-input name="test-input"></custom-text-input>
+      <input type="submit" id="submit-btn"></input>
     </form>
+    <script>
+      const form = document.querySelector("form");
+      form.onsubmit = function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        console.log("~~ current form state ~~")
+        for (let entry of formData.entries()) {
+          console.log(`${entry[0]}: ${entry[1]}`);
+        }
+      }
+    </script>
   </body>
 </html>

@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'element-internals-example',
+  minifyJs: true,
   outputTargets: [
     {
       type: 'dist',
