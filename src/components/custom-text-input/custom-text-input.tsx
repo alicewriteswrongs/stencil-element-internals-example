@@ -17,6 +17,10 @@ export class CustomTextInput {
     this.internals.setFormValue(event.target.value);
   }
 
+  componentWillLoad() {
+    this.internals.setFormValue("my default value");
+  }
+
   render() {
     return (
       <input
