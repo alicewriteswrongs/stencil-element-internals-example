@@ -1,16 +1,14 @@
-import { Component, h, FormInternals, State } from '@stencil/core';
+import { Component, h, AttachInternals, State } from '@stencil/core';
 
 @Component({
   tag: 'custom-text-input',
   styleUrl: 'custom-text-input.css',
-  shadow: {
-    formAssociated: true
-  }
+  formAssociated: true
 })
 export class CustomTextInput {
   @State() value: string;
 
-  @FormInternals() internals: ElementInternals;
+  @AttachInternals() internals: ElementInternals;
 
   handleChange(event) {
     this.value = event.target.value;
