@@ -3,7 +3,8 @@ import { Component, h, AttachInternals, State } from '@stencil/core';
 @Component({
   tag: 'custom-text-input',
   styleUrl: 'custom-text-input.css',
-  formAssociated: true
+  formAssociated: true,
+  shadow: true
 })
 export class CustomTextInput {
   @State() value: string;
